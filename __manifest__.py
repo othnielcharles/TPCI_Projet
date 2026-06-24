@@ -20,8 +20,8 @@
         'base', 'hr', 'stock', 'purchase', 'account', 'maintenance', 'mail', 'contacts', 'web'
     ],
     'data': [
-        # 'security/security.xml',
-        # 'security/ir.model.access.csv',
+        'security/security.xml',
+        'security/ir.model.access.csv',
         # 'views/menus.xml',
         # 'data/it_parc_demo.xml',
     ],
