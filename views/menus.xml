@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Menu principal -->
+    <menuitem id="menu_it_parc_root" name="IT Parc" sequence="10"/>
+
+    <!-- Sous-menu Equipements -->
+    <menuitem id="menu_it_equipment" name="Equipements" parent="menu_it_parc_root" action="action_it_equipment" sequence="10"/>
+</odoo>

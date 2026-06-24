@@ -1,1 +1,1 @@
-# Init for models
+from . import equipment
