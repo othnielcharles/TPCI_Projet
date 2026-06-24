@@ -24,6 +24,8 @@
         'security/ir.model.access.csv',
         'data/it_equipment_sequence.xml',
         'views/equipment_views.xml',
+        'views/assignment_views.xml',
+        'views/intervention_views.xml',
         'views/menus.xml',
         # 'views/menus.xml',
         # 'data/it_parc_demo.xml',

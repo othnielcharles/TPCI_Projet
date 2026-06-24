@@ -29,6 +29,23 @@ class ItEquipment(models.Model):
         ('retire', 'Retiré')
     ], string='État', default='brouillon', tracking=True, required=True)
 
+    assignment_ids = fields.One2many('it.assignment', 'equipment_id', string='Historique des affectations')
+    intervention_ids = fields.One2many('it.intervention', 'equipment_id', string='Historique des interventions')
+    current_employee_id = fields.Many2one('hr.employee', string='Employé Actuel', compute='_compute_current_assignment', store=True)
+    current_department_id = fields.Many2one('hr.department', string='Département Actuel', compute='_compute_current_assignment', store=True)
+
+    @api.depends('assignment_ids', 'assignment_ids.is_active')
+    def _compute_current_assignment(self):
+        for record in self:
+            active_assignment = record.assignment_ids.filtered(lambda a: a.is_active)
+            if active_assignment:
+                latest = active_assignment.sorted(key=lambda a: a.start_date, reverse=True)[0]
+                record.current_employee_id = latest.employee_id
+                record.current_department_id = latest.department_id
+            else:
+                record.current_employee_id = False
+                record.current_department_id = False
+
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:

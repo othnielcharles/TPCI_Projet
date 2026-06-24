@@ -1,3 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_it_equipment_technician,it.equipment.technician,model_it_equipment,it_parc.group_it_technician,1,0,0,0
 access_it_equipment_manager,it.equipment.manager,model_it_equipment,it_parc.group_it_manager,1,1,1,1
+access_it_assignment_technician,it.assignment.technician,model_it_assignment,it_parc.group_it_technician,1,0,0,0
+access_it_assignment_manager,it.assignment.manager,model_it_assignment,it_parc.group_it_manager,1,1,1,1
+access_it_intervention_technician,it.intervention.technician,model_it_intervention,it_parc.group_it_technician,1,1,1,0
+access_it_intervention_manager,it.intervention.manager,model_it_intervention,it_parc.group_it_manager,1,1,1,1

@@ -3,6 +3,8 @@
     <!-- Menu principal -->
     <menuitem id="menu_it_parc_root" name="IT Parc" sequence="10"/>
 
-    <!-- Sous-menu Equipements -->
+    <!-- Sous-menus -->
     <menuitem id="menu_it_equipment" name="Equipements" parent="menu_it_parc_root" action="action_it_equipment" sequence="10"/>
+    <menuitem id="menu_it_assignment" name="Affectations" parent="menu_it_parc_root" action="action_it_assignment" sequence="20"/>
+    <menuitem id="menu_it_intervention" name="Interventions" parent="menu_it_parc_root" action="action_it_intervention" sequence="30"/>
 </odoo>
