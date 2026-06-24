@@ -5,3 +5,7 @@ access_it_assignment_technician,it.assignment.technician,model_it_assignment,it_
 access_it_assignment_manager,it.assignment.manager,model_it_assignment,it_parc.group_it_manager,1,1,1,1
 access_it_intervention_technician,it.intervention.technician,model_it_intervention,it_parc.group_it_technician,1,1,1,0
 access_it_intervention_manager,it.intervention.manager,model_it_intervention,it_parc.group_it_manager,1,1,1,1
+access_it_contract_technician,it.contract.technician,model_it_contract,it_parc.group_it_technician,1,0,0,0
+access_it_contract_manager,it.contract.manager,model_it_contract,it_parc.group_it_manager,1,1,1,1
+access_it_alerte_technician,it.alerte.technician,model_it_alerte,it_parc.group_it_technician,1,0,0,0
+access_it_alerte_manager,it.alerte.manager,model_it_alerte,it_parc.group_it_manager,1,1,1,1

@@ -7,4 +7,6 @@
     <menuitem id="menu_it_equipment" name="Equipements" parent="menu_it_parc_root" action="action_it_equipment" sequence="10"/>
     <menuitem id="menu_it_assignment" name="Affectations" parent="menu_it_parc_root" action="action_it_assignment" sequence="20"/>
     <menuitem id="menu_it_intervention" name="Interventions" parent="menu_it_parc_root" action="action_it_intervention" sequence="30"/>
+    <menuitem id="menu_it_contract" name="Contrats" parent="menu_it_parc_root" action="action_it_contract" sequence="40"/>
+    <menuitem id="menu_it_alerte" name="Alertes" parent="menu_it_parc_root" action="action_it_alerte" sequence="50"/>
 </odoo>
