@@ -54,7 +54,7 @@
         <record id="demo_eq_7" model="it.equipment">
             <field name="name">Téléphone Yealink</field>
             <field name="serial_number">YEA-007</field>
-            <field name="category">telephonie</field>
+            <field name="category">telephone</field>
             <field name="purchase_value">150.0</field>
             <field name="state">brouillon</field>
         </record>

@@ -14,6 +14,7 @@ class ItEquipment(models.Model):
         ('imprimante', 'Imprimante'),
         ('reseau', 'Équipement Réseau'),
         ('telephone', 'Téléphone IP'),
+        ('ecran', 'Écran'),
         ('autre', 'Autre')
     ], string='Catégorie', required=True, default='ordinateur', tracking=True)
     
