@@ -38,8 +38,7 @@
         'views/contract_views.xml',
         'views/alerte_views.xml',
         'views/menus.xml',
-        # 'views/menus.xml',
-        # 'data/it_parc_demo.xml',
+        'data/it_parc_demo.xml',
     ],
     'assets': {
         'web.assets_backend': [
@@ -48,9 +47,6 @@
             'it_parc/static/src/components/dashboard/dashboard.scss',
         ],
     },
-    'demo': [
-        'data/it_parc_demo.xml',
-    ],
     'installable': True,
     'application': True,
     'auto_install': False,
