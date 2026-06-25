@@ -49,9 +49,36 @@ class ItEquipment(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
-            if vals.get('reference', _('Nouveau')) == _('Nouveau'):
-                vals['reference'] = self.env['ir.sequence'].next_by_code('it.equipment.seq') or _('Nouveau')
+            if vals.get('reference', 'Nouveau') == 'Nouveau':
+                vals['reference'] = self.env['ir.sequence'].next_by_code('it.equipment.seq') or 'Nouveau'
         return super().create(vals_list)
+
+    @api.model
+    def get_statistics(self):
+        equipments = self.search([])
+        interventions = self.env['it.intervention'].search([])
+        contracts = self.env['it.contract'].search([('state', '=', 'active')])
+
+        total_equipments = len(equipments)
+        in_maintenance = len(equipments.filtered(lambda e: e.state == 'maintenance'))
+        active_contracts = len(contracts)
+        total_maintenance_cost = sum(interventions.mapped('cost'))
+
+        categories = {}
+        for eq in equipments:
+            cat = eq.category or 'Autre'
+            categories[cat] = categories.get(cat, 0) + 1
+
+        return {
+            'total_equipments': total_equipments,
+            'in_maintenance': in_maintenance,
+            'active_contracts': active_contracts,
+            'total_maintenance_cost': total_maintenance_cost,
+            'chart_data': {
+                'labels': list(categories.keys()),
+                'values': list(categories.values())
+            }
+        }
 
     def action_affecter(self):
         self.state = 'affecte'

@@ -3,6 +3,9 @@
     <!-- Menu principal -->
     <menuitem id="menu_it_parc_root" name="IT Parc" sequence="10"/>
 
+    <!-- Dashboard comme premier menu -->
+    <menuitem id="menu_it_dashboard" name="Tableau de bord" parent="menu_it_parc_root" action="action_it_dashboard" sequence="5"/>
+
     <!-- Sous-menus -->
     <menuitem id="menu_it_equipment" name="Equipements" parent="menu_it_parc_root" action="action_it_equipment" sequence="10"/>
     <menuitem id="menu_it_assignment" name="Affectations" parent="menu_it_parc_root" action="action_it_assignment" sequence="20"/>

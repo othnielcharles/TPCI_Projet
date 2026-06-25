@@ -24,6 +24,7 @@
         'security/ir.model.access.csv',
         'data/it_equipment_sequence.xml',
         'data/it_cron.xml',
+        'views/dashboard_views.xml',
         'wizards/import_equipment_views.xml',
         'wizards/reassign_equipment_views.xml',
         'wizards/renew_contract_views.xml',
@@ -42,10 +43,14 @@
     ],
     'assets': {
         'web.assets_backend': [
-            # 'it_parc/static/src/js/dashboard.js',
-            # 'it_parc/static/src/xml/dashboard.xml',
+            'it_parc/static/src/components/dashboard/dashboard.js',
+            'it_parc/static/src/components/dashboard/dashboard.xml',
+            'it_parc/static/src/components/dashboard/dashboard.scss',
         ],
     },
+    'demo': [
+        'data/it_parc_demo.xml',
+    ],
     'installable': True,
     'application': True,
     'auto_install': False,
