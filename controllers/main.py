@@ -55,22 +55,34 @@ class ItParcExportController(http.Controller):
         elif export_type == 'maintenance':
             filename = "Synthese_Couts_Maintenance.xlsx"
             sheet = workbook.add_worksheet('Synthèse Coûts')
-            headers = ['Équipement', 'Technicien', 'Date Début', 'Durée (h)', 'Coût', 'Statut']
+            headers = ['Équipement', 'Mois', 'Nombre d\'interventions', 'Durée Totale (h)', 'Coût Total']
             for col, h in enumerate(headers):
                 sheet.write(0, col, h, header_format)
                 
             interventions = request.env['it.intervention'].search([])
-            for row, inv in enumerate(interventions, 1):
-                sheet.write(row, 0, inv.equipment_id.name or '', normal_format)
-                sheet.write(row, 1, inv.technician_id.name or '', normal_format)
-                if inv.date_start:
-                    sheet.write(row, 2, str(inv.date_start), normal_format)
-                else:
-                    sheet.write(row, 2, '', normal_format)
-                sheet.write(row, 3, inv.duration or 0.0, normal_format)
-                sheet.write(row, 4, inv.cost or 0.0, currency_format)
-                state_label = dict(inv._fields['state'].selection).get(inv.state, '')
-                sheet.write(row, 5, state_label, normal_format)
+            
+            # Agrégation par équipement et par mois
+            summary = {}
+            for inv in interventions:
+                if not inv.date_start:
+                    continue
+                month = inv.date_start.strftime('%Y-%m')
+                eq_name = inv.equipment_id.name or 'Inconnu'
+                key = (eq_name, month)
+                if key not in summary:
+                    summary[key] = {'count': 0, 'duration': 0.0, 'cost': 0.0}
+                summary[key]['count'] += 1
+                summary[key]['duration'] += (inv.duration or 0.0)
+                summary[key]['cost'] += (inv.cost or 0.0)
+                
+            row = 1
+            for (eq_name, month), data in sorted(summary.items()):
+                sheet.write(row, 0, eq_name, normal_format)
+                sheet.write(row, 1, month, normal_format)
+                sheet.write(row, 2, data['count'], normal_format)
+                sheet.write(row, 3, data['duration'], normal_format)
+                sheet.write(row, 4, data['cost'], currency_format)
+                row += 1
 
         elif export_type == 'contracts':
             filename = "Contrats_Expirant_60j.xlsx"

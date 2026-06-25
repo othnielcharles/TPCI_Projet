@@ -24,5 +24,13 @@
             <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
             <field name="comment">Accès complet à toutes les fonctionnalités du module it_parc.</field>
         </record>
+
+        <!-- Règle de sécurité (ir.rule) : Accès global IT -->
+        <record id="it_equipment_rule" model="ir.rule">
+            <field name="name">Règle globale Équipements IT</field>
+            <field name="model_id" ref="model_it_equipment"/>
+            <field name="domain_force">[(1, '=', 1)]</field>
+            <field name="groups" eval="[(4, ref('group_it_technician')), (4, ref('group_it_manager'))]"/>
+        </record>
     </data>
 </odoo>

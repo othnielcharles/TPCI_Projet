@@ -3,6 +3,7 @@ from odoo import api, fields, models
 class ItAssignment(models.Model):
     _name = 'it.assignment'
     _description = 'Affectation d\'équipement'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'start_date desc'
 
     equipment_id = fields.Many2one('it.equipment', string='Équipement', required=True)

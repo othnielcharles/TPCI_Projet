@@ -3,6 +3,7 @@ from odoo import api, fields, models
 class ItIntervention(models.Model):
     _name = 'it.intervention'
     _description = 'Intervention de maintenance'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'date_start desc'
 
     name = fields.Char(string='Numéro d\'intervention', required=True, copy=False, readonly=True, default='Nouveau')

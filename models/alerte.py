@@ -4,6 +4,7 @@ from odoo import api, fields, models
 class ItAlerte(models.Model):
     _name = 'it.alerte'
     _description = 'Alerte Système IT'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'date desc'
 
     name = fields.Char(string='Sujet', required=True)
