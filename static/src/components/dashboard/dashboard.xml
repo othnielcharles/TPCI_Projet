@@ -86,12 +86,12 @@
                         <div class="card-body text-white">
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <div class="icon-shape bg-white-20 text-white rounded-circle">
-                                    <i class="fa fa-euro"></i>
+                                    <i class="fa fa-money"></i>
                                 </div>
                             </div>
                             <h2 class="display-5 fw-bold mb-0 text-white"><t t-esc="state.stats.total_maintenance_cost"/></h2>
-                            <p class="text-white-50 mb-0 fw-medium">Coûts de Maintenance</p>
-                            <p class="text-white-50 small mt-2 mb-0">Moyenne: <t t-esc="state.stats.avg_intervention_cost"/>€ / interv.</p>
+                            <p class="text-white-50 mb-0 fw-medium">Coûts de Maintenance (FCFA)</p>
+                            <p class="text-white-50 small mt-2 mb-0">Moyenne: <t t-esc="state.stats.avg_intervention_cost"/> FCFA / interv.</p>
                         </div>
                     </div>
                 </div>
@@ -156,7 +156,7 @@
                                             <p class="mb-0 text-muted small"><t t-esc="inv.name"/> • Par <t t-esc="inv.technician"/></p>
                                             <div class="d-flex justify-content-between align-items-center mt-2">
                                                 <span class="text-muted small"><i class="fa fa-calendar-o me-1"></i><t t-esc="inv.date"/></span>
-                                                <span class="fw-bold text-dark"><t t-esc="inv.cost"/> €</span>
+                                                <span class="fw-bold text-dark"><t t-esc="inv.cost"/> FCFA</span>
                                             </div>
                                         </div>
                                     </div>
