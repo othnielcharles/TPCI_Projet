@@ -123,7 +123,7 @@ export class ItParcDashboard extends Component {
             type: 'ir.actions.act_window',
             name: 'Équipements en Maintenance',
             res_model: 'it.equipment',
-            view_mode: 'list,form',
+            views: [[false, 'list'], [false, 'form']],
             domain: [['state', '=', 'maintenance']],
         });
     }
@@ -133,7 +133,7 @@ export class ItParcDashboard extends Component {
             type: 'ir.actions.act_window',
             name: 'Contrats Actifs',
             res_model: 'it.contract',
-            view_mode: 'list,form',
+            views: [[false, 'list'], [false, 'form']],
             domain: [['state', '=', 'active']],
         });
     }
