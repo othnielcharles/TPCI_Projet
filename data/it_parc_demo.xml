@@ -97,24 +97,24 @@
         <record id="demo_contract_1" model="it.contract">
             <field name="name">Contrat Support Dell</field>
             <field name="partner_id" ref="demo_partner_1"/>
-            <field name="start_date" eval="(datetime.date.today() - relativedelta(months=6)).strftime('%Y-%m-%d')"/>
-            <field name="end_date" eval="(datetime.date.today() + relativedelta(months=6)).strftime('%Y-%m-%d')"/>
+            <field name="start_date" eval="(datetime.datetime.now() - relativedelta(months=6)).strftime('%Y-%m-%d')"/>
+            <field name="end_date" eval="(datetime.datetime.now() + relativedelta(months=6)).strftime('%Y-%m-%d')"/>
             <field name="amount">5000.0</field>
         </record>
         
         <record id="demo_contract_2" model="it.contract">
             <field name="name">Contrat Apple Care</field>
             <field name="partner_id" ref="demo_partner_2"/>
-            <field name="start_date" eval="(datetime.date.today() - relativedelta(months=12)).strftime('%Y-%m-%d')"/>
-            <field name="end_date" eval="(datetime.date.today() + relativedelta(days=45)).strftime('%Y-%m-%d')"/>
+            <field name="start_date" eval="(datetime.datetime.now() - relativedelta(months=12)).strftime('%Y-%m-%d')"/>
+            <field name="end_date" eval="(datetime.datetime.now() + relativedelta(days=45)).strftime('%Y-%m-%d')"/>
             <field name="amount">3000.0</field>
         </record>
 
         <record id="demo_contract_3" model="it.contract">
             <field name="name">Licences Office 365</field>
             <field name="partner_id" ref="demo_partner_1"/>
-            <field name="start_date" eval="(datetime.date.today() - relativedelta(months=24)).strftime('%Y-%m-%d')"/>
-            <field name="end_date" eval="(datetime.date.today() + relativedelta(days=15)).strftime('%Y-%m-%d')"/>
+            <field name="start_date" eval="(datetime.datetime.now() - relativedelta(months=24)).strftime('%Y-%m-%d')"/>
+            <field name="end_date" eval="(datetime.datetime.now() + relativedelta(days=15)).strftime('%Y-%m-%d')"/>
             <field name="amount">1500.0</field>
         </record>
 
