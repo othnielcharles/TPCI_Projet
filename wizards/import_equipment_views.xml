@@ -32,6 +32,4 @@
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
-    
-    <menuitem id="menu_import_equipment" name="Import CSV" parent="menu_it_equipment" action="action_wizard_import_equipment" sequence="100"/>
 </odoo>
