@@ -10,5 +10,6 @@
     <menuitem id="menu_it_contract" name="Contrats" parent="menu_it_parc_root" action="action_it_contract" sequence="40"/>
     <menuitem id="menu_it_alerte" name="Alertes" parent="menu_it_parc_root" action="action_it_alerte" sequence="50"/>
     
+    <menuitem id="menu_export_excel" name="Exports Excel" parent="menu_it_parc_root" action="action_wizard_export_excel" sequence="90"/>
     <menuitem id="menu_import_equipment" name="Import CSV Equipements" parent="menu_it_parc_root" action="action_wizard_import_equipment" sequence="100"/>
 </odoo>

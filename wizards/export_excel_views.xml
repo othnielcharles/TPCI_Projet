@@ -22,6 +22,4 @@
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
-    
-    <menuitem id="menu_export_excel" name="Exports Excel" parent="menu_it_parc_root" action="action_wizard_export_excel" sequence="90"/>
 </odoo>
