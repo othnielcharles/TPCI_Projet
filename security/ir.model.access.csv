@@ -9,3 +9,6 @@ access_it_contract_technician,it.contract.technician,model_it_contract,it_parc.g
 access_it_contract_manager,it.contract.manager,model_it_contract,it_parc.group_it_manager,1,1,1,1
 access_it_alerte_technician,it.alerte.technician,model_it_alerte,it_parc.group_it_technician,1,0,0,0
 access_it_alerte_manager,it.alerte.manager,model_it_alerte,it_parc.group_it_manager,1,1,1,1
+access_wizard_import_equipment,wizard.import.equipment,model_wizard_import_equipment,it_parc.group_it_manager,1,1,1,1
+access_wizard_reassign_equipment,wizard.reassign.equipment,model_wizard_reassign_equipment,it_parc.group_it_manager,1,1,1,1
+access_wizard_renew_contract,wizard.renew.contract,model_wizard_renew_contract,it_parc.group_it_manager,1,1,1,1

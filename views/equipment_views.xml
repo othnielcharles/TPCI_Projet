@@ -9,6 +9,7 @@
                 <form string="Equipement">
                     <header>
                         <button name="action_affecter" string="Affecter" type="object" class="oe_highlight" invisible="state != 'brouillon'"/>
+                        <button name="%(it_parc.action_wizard_reassign_equipment)d" string="Réaffecter" type="action" class="btn-primary" invisible="state != 'affecte'"/>
                         <button name="action_maintenance" string="Mettre en maintenance" type="object" invisible="state not in ('affecte', 'brouillon')"/>
                         <button name="action_retirer" string="Retirer" type="object" invisible="state == 'retire'"/>
                         <button name="action_brouillon" string="Remettre en brouillon" type="object" invisible="state == 'brouillon'"/>

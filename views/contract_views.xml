@@ -7,6 +7,7 @@
             <field name="arch" type="xml">
                 <form string="Contrat">
                     <header>
+                        <button name="%(it_parc.action_wizard_renew_contract)d" string="Renouveler" type="action" class="btn-primary" invisible="state != 'active'"/>
                         <field name="state" widget="statusbar" statusbar_visible="active,expired,renewed"/>
                     </header>
                     <sheet>
