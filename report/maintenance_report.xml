@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_it_maintenance" model="ir.actions.report">
+        <field name="name">Historique des Maintenances</field>
+        <field name="model">it.intervention</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">it_parc.report_maintenance_document</field>
+        <field name="report_file">it_parc.report_maintenance_document</field>
+        <field name="binding_model_id" ref="model_it_intervention"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_maintenance_document">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <h2>Historique des Maintenances</h2>
+                    
+                    <t t-set="total_cost" t-value="0.0"/>
+                    <t t-set="total_duration" t-value="0.0"/>
+                    
+                    <table class="table table-sm o_main_table mt32">
+                        <thead>
+                            <tr>
+                                <th>Numéro</th>
+                                <th>Équipement</th>
+                                <th>Date de début</th>
+                                <th>Technicien</th>
+                                <th class="text-end">Durée (h)</th>
+                                <th class="text-end">Coût</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="docs" t-as="interv">
+                                <tr>
+                                    <td><span t-field="interv.name"/></td>
+                                    <td><span t-field="interv.equipment_id.name"/></td>
+                                    <td><span t-field="interv.date_start"/></td>
+                                    <td><span t-field="interv.technician_id.name"/></td>
+                                    <td class="text-end"><span t-field="interv.duration"/></td>
+                                    <td class="text-end"><span t-field="interv.cost" t-options='{"widget": "monetary", "display_currency": interv.currency_id}'/></td>
+                                </tr>
+                                <t t-set="total_cost" t-value="total_cost + interv.cost"/>
+                                <t t-set="total_duration" t-value="total_duration + interv.duration"/>
+                            </t>
+                        </tbody>
+                    </table>
+
+                    <div class="row mt32">
+                        <div class="col-8"></div>
+                        <div class="col-4">
+                            <table class="table table-sm">
+                                <tr>
+                                    <td><strong>Durée Totale:</strong></td>
+                                    <td class="text-end"><t t-esc="total_duration"/> h</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Coût Total:</strong></td>
+                                    <td class="text-end"><t t-esc="total_cost" t-options='{"widget": "monetary", "display_currency": docs[0].currency_id if docs else request.env.company.currency_id}'/></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

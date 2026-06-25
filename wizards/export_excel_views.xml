@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_wizard_export_excel" model="ir.ui.view">
+        <field name="name">wizard.export.excel.form</field>
+        <field name="model">wizard.export.excel</field>
+        <field name="arch" type="xml">
+            <form string="Export Excel">
+                <group>
+                    <field name="export_type" widget="radio"/>
+                </group>
+                <footer>
+                    <button name="action_export" string="Télécharger Excel" type="object" class="btn-primary"/>
+                    <button string="Fermer" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wizard_export_excel" model="ir.actions.act_window">
+        <field name="name">Export Excel (Rapports)</field>
+        <field name="res_model">wizard.export.excel</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    
+    <menuitem id="menu_export_excel" name="Exports Excel" parent="menu_it_parc_root" action="action_wizard_export_excel" sequence="90"/>
+</odoo>

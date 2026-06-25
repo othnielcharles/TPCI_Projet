@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_it_inventory" model="ir.actions.report">
+        <field name="name">Rapport d'Inventaire</field>
+        <field name="model">it.equipment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">it_parc.report_inventory_document</field>
+        <field name="report_file">it_parc.report_inventory_document</field>
+        <field name="print_report_name">'Inventaire_IT'</field>
+        <field name="binding_model_id" ref="model_it_equipment"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_inventory_document">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <h2>Rapport d'Inventaire IT</h2>
+                    <p>Ce rapport présente l'état d'inventaire des équipements sélectionnés.</p>
+                    <table class="table table-sm o_main_table mt16">
+                        <thead>
+                            <tr>
+                                <th>Référence</th>
+                                <th>Nom</th>
+                                <th>N/S</th>
+                                <th>Catégorie</th>
+                                <th>Affectation</th>
+                                <th>État</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="docs" t-as="o">
+                                <tr>
+                                    <td><span t-field="o.reference"/></td>
+                                    <td><span t-field="o.name"/></td>
+                                    <td><span t-field="o.serial_number"/></td>
+                                    <td><span t-field="o.category"/></td>
+                                    <td><span t-field="o.current_employee_id.name"/></td>
+                                    <td><span t-field="o.state"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

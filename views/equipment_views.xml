@@ -13,6 +13,7 @@
                         <button name="action_maintenance" string="Mettre en maintenance" type="object" invisible="state not in ('affecte', 'brouillon')"/>
                         <button name="action_retirer" string="Retirer" type="object" invisible="state == 'retire'"/>
                         <button name="action_brouillon" string="Remettre en brouillon" type="object" invisible="state == 'brouillon'"/>
+                        <button name="%(it_parc.action_report_it_equipment)d" string="Imprimer Fiche" type="action" class="btn-secondary"/>
                         <field name="state" widget="statusbar" statusbar_visible="brouillon,affecte,maintenance,retire"/>
                     </header>
                     <sheet>

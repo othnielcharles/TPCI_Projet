@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_it_equipment" model="ir.actions.report">
+        <field name="name">Fiche Équipement</field>
+        <field name="model">it.equipment</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">it_parc.report_equipment_document</field>
+        <field name="report_file">it_parc.report_equipment_document</field>
+        <field name="print_report_name">'Fiche_%s' % (object.name)</field>
+        <field name="binding_model_id" ref="model_it_equipment"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_equipment_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="oe_structure"/>
+                        <h2>Fiche Équipement: <span t-field="o.name"/></h2>
+                        <div class="row mt32 mb32">
+                            <div class="col-6">
+                                <strong>Référence:</strong> <span t-field="o.reference"/><br/>
+                                <strong>Numéro de série:</strong> <span t-field="o.serial_number"/><br/>
+                                <strong>Catégorie:</strong> <span t-field="o.category"/><br/>
+                            </div>
+                            <div class="col-6">
+                                <strong>Date d'achat:</strong> <span t-field="o.purchase_date"/><br/>
+                                <strong>Date de garantie:</strong> <span t-field="o.warranty_date"/><br/>
+                                <strong>État actuel:</strong> <span t-field="o.state"/><br/>
+                            </div>
+                        </div>
+
+                        <h3>Affectation actuelle</h3>
+                        <t t-if="o.current_employee_id">
+                            <p>
+                                Cet équipement est actuellement affecté à <strong><span t-field="o.current_employee_id.name"/></strong> 
+                                (<span t-field="o.current_department_id.name"/>).
+                            </p>
+                        </t>
+                        <t t-else="">
+                            <p>Non affecté.</p>
+                        </t>
+
+                        <h3>Historique des interventions</h3>
+                        <table class="table table-sm o_main_table mt16" t-if="o.intervention_ids">
+                            <thead>
+                                <tr>
+                                    <th>Numéro</th>
+                                    <th>Date</th>
+                                    <th>Technicien</th>
+                                    <th>Statut</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.intervention_ids" t-as="interv">
+                                    <tr>
+                                        <td><span t-field="interv.name"/></td>
+                                        <td><span t-field="interv.date_start"/></td>
+                                        <td><span t-field="interv.technician_id.name"/></td>
+                                        <td><span t-field="interv.state"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                        <p t-if="not o.intervention_ids">Aucune intervention enregistrée.</p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

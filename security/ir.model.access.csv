@@ -12,3 +12,4 @@ access_it_alerte_manager,it.alerte.manager,model_it_alerte,it_parc.group_it_mana
 access_wizard_import_equipment,wizard.import.equipment,model_wizard_import_equipment,it_parc.group_it_manager,1,1,1,1
 access_wizard_reassign_equipment,wizard.reassign.equipment,model_wizard_reassign_equipment,it_parc.group_it_manager,1,1,1,1
 access_wizard_renew_contract,wizard.renew.contract,model_wizard_renew_contract,it_parc.group_it_manager,1,1,1,1
+access_wizard_export_excel,wizard.export.excel,model_wizard_export_excel,it_parc.group_it_manager,1,1,1,1
